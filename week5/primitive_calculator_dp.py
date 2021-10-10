@@ -3,6 +3,7 @@ import sys
 
 def optimal_sequence(n):
 
+    # List of parent for each number
     parents = [None] * (n + 1)
     # Sequence of number of operations to get to each number from 1 to n
     min_num_of_operations = [0] + [float('inf')] * n
