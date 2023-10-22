@@ -1,6 +1,7 @@
 # Uses python3
 import sys
 
+
 def get_fibonacci_huge_improved(n, m):
 
     # get pissano period m
@@ -23,6 +24,7 @@ def get_fibonacci_huge_improved(n, m):
     # return result
     return current % m
 
+
 def get_pisannoPeriod(n, m):
 
     if m >= 2:
@@ -34,13 +36,13 @@ def get_pisannoPeriod(n, m):
             previous, current = current, fib2 % m
 
             # testing condition
-            if (previous == 0 and current == 1):
+            if previous == 0 and current == 1:
                 return i + 1
     else:
         return 0
-    
 
-if __name__ == '__main__':
-    input = sys.stdin.read();
+
+if __name__ == "__main__":
+    input = sys.stdin.read()
     n, m = map(int, input.split())
     print(get_fibonacci_huge_improved(n, m))

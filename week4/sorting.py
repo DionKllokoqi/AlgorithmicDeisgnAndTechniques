@@ -2,6 +2,7 @@
 import sys
 import random
 
+
 def partition3(a, l, r):
     # set pivot
     x = a[l]
@@ -25,6 +26,7 @@ def partition3(a, l, r):
     # return indices of last element < pivot and of last element = pivot
     return j_1, j_2
 
+
 def partition2(a, l, r):
     x = a[l]
     j = l
@@ -44,14 +46,14 @@ def randomized_quick_sort(a, l, r):
     m_1, m_2 = partition3(a, l, r)
     randomized_quick_sort(a, l, m_1 - 1)
     randomized_quick_sort(a, m_2 + 1, r)
-    #m = partition2(a, l, r)
-    #randomized_quick_sort(a, l, m - 1)
-    #randomized_quick_sort(a, m + 1, r)
+    # m = partition2(a, l, r)
+    # randomized_quick_sort(a, l, m - 1)
+    # randomized_quick_sort(a, m + 1, r)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     input = sys.stdin.read()
     n, *a = list(map(int, input.split()))
     randomized_quick_sort(a, 0, n - 1)
     for x in a:
-        print(x, end=' ')
+        print(x, end=" ")

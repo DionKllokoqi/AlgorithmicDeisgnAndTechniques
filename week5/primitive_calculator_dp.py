@@ -1,12 +1,13 @@
 # Uses python3
 import sys
 
+
 def optimal_sequence(n):
 
     # List of parent for each number
     parents = [None] * (n + 1)
     # Sequence of number of operations to get to each number from 1 to n
-    min_num_of_operations = [0] + [float('inf')] * n
+    min_num_of_operations = [0] + [float("inf")] * n
 
     # Find the optimal solution for each number from 1 to n
     for i in range(1, n + 1):
@@ -32,7 +33,7 @@ def optimal_sequence(n):
                 current_min_op, current_parent = num_ops, parent
 
         min_num_of_operations[i], parents[i] = current_min_op, current_parent
-    
+
     k = n
     reversed_sequence = []
     while k > 0:
@@ -43,9 +44,10 @@ def optimal_sequence(n):
     reversed_sequence.reverse()
     return reversed_sequence
 
+
 inputVal = sys.stdin.read()
 n = int(inputVal)
 sequence = list(optimal_sequence(n))
 print(len(sequence) - 1)
 for x in sequence:
-    print(x, end=' ')
+    print(x, end=" ")

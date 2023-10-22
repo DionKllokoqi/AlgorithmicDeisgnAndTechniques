@@ -1,6 +1,7 @@
 import sys
 import change_dp
 
+
 def change_dp_test():
     m = 0
 
@@ -8,5 +9,6 @@ def change_dp_test():
         print(f"Change for m: {m} = {change_dp.get_change(m)}")
         m += 1
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     change_dp_test()

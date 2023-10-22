@@ -2,7 +2,8 @@
 import sys
 from collections import namedtuple
 
-Segment = namedtuple('Segment', 'start end')
+Segment = namedtuple("Segment", "start end")
+
 
 def optimal_points(segments):
     points = []
@@ -12,7 +13,7 @@ def optimal_points(segments):
     for segment in segments:
         if segment.end < minSegment.end:
             minSegment = segment
-    
+
     # remove the min segment
     segments.remove(minSegment)
 
@@ -21,7 +22,7 @@ def optimal_points(segments):
         if segment.start <= minSegment.end:
             enclosedSegments.append(segment)
             segments.remove(segment)
-        
+
     points.append(minSegment.end)
 
     if len(segments) == 0:
@@ -31,11 +32,11 @@ def optimal_points(segments):
     return points
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     input = sys.stdin.read()
     n, *data = map(int, input.split())
     segments = list(map(lambda x: Segment(x[0], x[1]), zip(data[::2], data[1::2])))
     points = optimal_points(segments)
     print(len(points))
     for p in points:
-        print(p, end=' ')
+        print(p, end=" ")

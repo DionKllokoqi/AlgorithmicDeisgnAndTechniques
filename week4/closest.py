@@ -1,4 +1,4 @@
-#Uses python3
+# Uses python3
 import sys
 import math
 import copy
@@ -9,13 +9,12 @@ class Point:
         self.x = x
         self.y = y
 
+
 # A utility function to find the
 # distance between two points
 def dist(p1, p2):
-    return math.sqrt((p1.x - p2.x) *
-                     (p1.x - p2.x) +
-                     (p1.y - p2.y) *
-                     (p1.y - p2.y))
+    return math.sqrt((p1.x - p2.x) * (p1.x - p2.x) + (p1.y - p2.y) * (p1.y - p2.y))
+
 
 # A Brute Force method to return the
 # smallest distance between two points
@@ -24,10 +23,11 @@ def bruteForce(P, n):
     min_val = float("inf")
     for i in range(n):
         for j in range(i + 1, n):
-            if (dist(P[i], P[j]) < min_val):
+            if dist(P[i], P[j]) < min_val:
                 min_val = dist(P[i], P[j])
 
     return min_val
+
 
 # A utility function to find the
 # distance beween the closest points of
@@ -44,20 +44,21 @@ def stripClosest(strip, size, d):
     minVal = d
 
     # Pick all points one by one and
-	# try the next points till the difference
-	# between y coordinates is smaller than d.
+    # try the next points till the difference
+    # between y coordinates is smaller than d.
     # Since all the points in the strip have
     # an x coordinate smaller than d to the middle,
     # we need to check only the y distance.
-	# It is a proven fact that this loop
-	# runs at most 6 times
+    # It is a proven fact that this loop
+    # runs at most 6 times
     for i in range(size):
         j = i + 1
         while j < size and abs(strip[i].y - strip[j].y) < minVal:
             minVal = min(dist(strip[i], strip[j]), minVal)
             j += 1
-    
+
     return minVal
+
 
 # A recursive function to find the
 # smallest distance. The array P contains
@@ -65,10 +66,10 @@ def stripClosest(strip, size, d):
 def closestUtil(P, Q, n):
 
     # If there are 2 or 3 points,
-	# then use brute force
+    # then use brute force
     if n <= 3:
         return bruteForce(P, n)
-    
+
     # find the mid point in the x sorted array that will serve
     # as the dividing line
     mid = n // 2
@@ -83,7 +84,7 @@ def closestUtil(P, Q, n):
             Pyl.append(Q[i])
         else:
             Pyr.append(Q[i])
-    
+
     # find the closest distance recursively in left and right side
     dl = closestUtil(Pyl, Q, mid)
     dr = closestUtil(Pyr, Q[mid:], n - mid)
@@ -98,7 +99,7 @@ def closestUtil(P, Q, n):
     for i in range(n):
         if abs(Q[i].x - midPoint.x) < d:
             strip.append(Q[i])
-    
+
     return stripClosest(strip, len(strip), d)
 
 
@@ -108,14 +109,15 @@ def minimum_distance(x, y):
     P = [None] * len(x)
     for i in range(len(x)):
         P[i] = Point(x[i], y[i])
-    
-    P.sort(key = lambda point: point.x)
+
+    P.sort(key=lambda point: point.x)
     Q = copy.deepcopy(P)
-    Q.sort(key = lambda point: point.y)
+    Q.sort(key=lambda point: point.y)
 
     return closestUtil(P, Q, len(P))
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     input = sys.stdin.read()
     data = list(map(int, input.split()))
     n = data[0]

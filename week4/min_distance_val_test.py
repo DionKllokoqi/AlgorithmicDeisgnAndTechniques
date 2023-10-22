@@ -1,7 +1,7 @@
 import closest_stressTest
 import sys
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     input = sys.stdin.read()
     data = list(map(int, input.split()))
     n = data[0]
