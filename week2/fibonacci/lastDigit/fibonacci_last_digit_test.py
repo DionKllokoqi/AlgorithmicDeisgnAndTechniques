@@ -3,7 +3,7 @@ import sys
 from fibonacci_last_digit_naive import (
     get_fibonacci_last_digit_naive as get_last_fib_digit_naive,
 )
-from get_fibonacci_last_digit_improved import (
+from fibonacci_last_digit_improved import (
     get_fibonacci_last_digit_improved as get_last_fib_digit,
 )
 

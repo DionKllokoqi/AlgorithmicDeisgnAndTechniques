@@ -1,1 +1,0 @@
-fibonacci_sum_naive
