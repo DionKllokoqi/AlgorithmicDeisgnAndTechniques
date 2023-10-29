@@ -1,24 +1,15 @@
 import unittest
-from pairwise_product import get_maximum_pairwise_product
-import time
-import resource
+from week1.pairwise_product import get_maximum_pairwise_product
+from utils.test.metrics import run_method_under_test
 
 
 class TestGetMaximumPairwiseProduct(unittest.TestCase):
-    def run_method_under_test(self, methodToRun, input):
-        time_start = time.perf_counter()
-        result = methodToRun(input)
-        time_elapsed = time.perf_counter() - time_start
-        memMb = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024.0 / 1024.0
-        print("%5.1f secs %5.1f MByte" % (time_elapsed, memMb))
-        return result
-
     def test_when_input_is_three_numbers_should_return_product_of_two_largest(self):
         # Arrange
         numbers = [1, 2, 3]
 
         # Act
-        result = self.run_method_under_test(get_maximum_pairwise_product, numbers)
+        result = run_method_under_test(get_maximum_pairwise_product, numbers)
 
         # Assert
         self.assertEqual(result, 6)
@@ -28,7 +19,7 @@ class TestGetMaximumPairwiseProduct(unittest.TestCase):
         numbers = [7, 5, 14, 2, 8, 8, 10, 1, 2, 3]
 
         # Act
-        result = self.run_method_under_test(get_maximum_pairwise_product, numbers)
+        result = run_method_under_test(get_maximum_pairwise_product, numbers)
 
         # Assert
         self.assertEqual(result, 140)
@@ -38,7 +29,7 @@ class TestGetMaximumPairwiseProduct(unittest.TestCase):
         numbers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
         # Act
-        result = self.run_method_under_test(get_maximum_pairwise_product, numbers)
+        result = run_method_under_test(get_maximum_pairwise_product, numbers)
 
         # Assert
         self.assertEqual(result, 0)
@@ -48,7 +39,7 @@ class TestGetMaximumPairwiseProduct(unittest.TestCase):
         numbers = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 
         # Act
-        result = self.run_method_under_test(get_maximum_pairwise_product, numbers)
+        result = run_method_under_test(get_maximum_pairwise_product, numbers)
 
         # Assert
         self.assertEqual(result, 1)
@@ -58,7 +49,7 @@ class TestGetMaximumPairwiseProduct(unittest.TestCase):
         numbers = [2 * 10**5, 2 * 10**5]
 
         # Act
-        result = self.run_method_under_test(get_maximum_pairwise_product, numbers)
+        result = run_method_under_test(get_maximum_pairwise_product, numbers)
 
         # Assert
         self.assertEqual(result, 40000000000)
@@ -68,7 +59,7 @@ class TestGetMaximumPairwiseProduct(unittest.TestCase):
         numbers = [0, 0]
 
         # Act
-        result = self.run_method_under_test(get_maximum_pairwise_product, numbers)
+        result = run_method_under_test(get_maximum_pairwise_product, numbers)
 
         # Assert
         self.assertEqual(result, 0)
@@ -78,7 +69,7 @@ class TestGetMaximumPairwiseProduct(unittest.TestCase):
         numbers = [1] * (2 * 10**5)
 
         # Act
-        result = self.run_method_under_test(get_maximum_pairwise_product, numbers)
+        result = run_method_under_test(get_maximum_pairwise_product, numbers)
 
         # Assert
         self.assertEqual(result, 1)
