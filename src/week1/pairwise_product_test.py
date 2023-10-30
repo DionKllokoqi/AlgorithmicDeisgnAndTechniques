@@ -1,6 +1,6 @@
 import unittest
-from week1.pairwise_product import get_maximum_pairwise_product
-from utils.test.metrics import run_method_under_test
+from src.week1.pairwise_product import get_maximum_pairwise_product
+from src.utils.test.metrics import run_method_under_test
 
 
 class TestGetMaximumPairwiseProduct(unittest.TestCase):
