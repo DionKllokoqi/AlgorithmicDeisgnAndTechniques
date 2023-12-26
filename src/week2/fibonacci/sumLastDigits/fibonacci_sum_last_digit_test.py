@@ -1,11 +1,30 @@
-import sys
+"""Unit tests for get last digit of a sum of fibonacci numbers
+"""
 
-from fibonacci_sum_last_digit_naive import fibonacci_sum_naive as fib_sum_naive
-from fibonacci_sum_last_digit_inter import fibonacci_sum_inter as fib_sum_inter
-from fibonacci_sum_last_digit_improved import fibonacci_sum_improved as fib_sum_improved
+import unittest
+
+from parameterized import parameterized
+
+from src.week2.fibonacci.sumLastDigits.fibonacci_sum_last_digit_naive import (
+    get_last_digit_of_sum_of_fibonacci_numbers_naive,
+)
+
+
+class TestSumFibonacciLastDigit(unittest.TestCase):
+    """Unit tests for get last digit of a sum of fibonacci numbers
+
+    Args:
+        unittest (): Inherits from unittest module
+    """
+
+    @parameterized.expand([(3, 4), (100, 5)])
+    def test_sum_fibonacci_last_digit_naive_textbook(self, n, expected):
+        """Simple test for naive implementation of sum_fibonacci_last_digit"""
+
+        return self.assertEqual(
+            get_last_digit_of_sum_of_fibonacci_numbers_naive(n), expected
+        )
+
 
 if __name__ == "__main__":
-    input = sys.stdin.read()
-    n = int(input)
-    # print(fib_sum_improved(n) == fib_sum_naive(n))
-    print(fib_sum_improved(n) == fib_sum_inter(n))
+    unittest.main()

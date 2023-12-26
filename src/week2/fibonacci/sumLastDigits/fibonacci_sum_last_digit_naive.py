@@ -1,23 +1,33 @@
 # Uses python3
+"""Script is used to find the last digit of a sum of the first n Fibonacci numbers."""
+
 import sys
 
 
-def fibonacci_sum_naive(n):
+def get_last_digit_of_sum_of_fibonacci_numbers_naive(n):
+    """Naive implementation of get last digit of a sum of fibonacci numbers
+
+    Args:
+        n (int): Number of fibonacci numbers to sum
+
+    Returns:
+        int: Last digit of a sum of fibonacci numbers
+    """
     if n <= 1:
         return n
 
     previous = 0
     current = 1
-    sum = 1
+    fib_sum = 1
 
     for _ in range(n - 1):
         previous, current = current, previous + current
-        sum += current
+        fib_sum += current
 
-    return sum % 10
+    return fib_sum % 10
 
 
 if __name__ == "__main__":
-    input = sys.stdin.read()
-    n = int(input)
-    print(fibonacci_sum_naive(n))
+    user_input = sys.stdin.read()
+    num = int(user_input)
+    print(get_last_digit_of_sum_of_fibonacci_numbers_naive(num))
