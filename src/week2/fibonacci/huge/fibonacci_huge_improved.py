@@ -19,6 +19,10 @@ def get_fibonacci_huge_improved(n, m):
     previous = 0
     current = 1
 
+    # Since we are calculating the fibonacci number for the remainder,
+    # in case remainder is 0 or 1, we can just terminate and return remainder.
+    # This is the same condition as the one in the normal fibonacci calculation,
+    # where we check for n <= 1, and return n in that case.
     if remainder == 0 or remainder == 1:
         return remainder
     for _ in range(remainder - 1):
