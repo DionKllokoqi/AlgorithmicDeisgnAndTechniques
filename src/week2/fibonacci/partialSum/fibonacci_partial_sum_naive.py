@@ -1,23 +1,28 @@
 # Uses python3
+
+"""Naive implementation of the last digit of the partial sum of Fibonacci numbers algorithm.
+"""
+
 import sys
 
 
-def fibonacci_partial_sum_naive(from_, to):
-    sum = 0
+def get_last_digit_of_partial_fibonacci_sum_naive(m, n):
+    """Get the last digit of the partial sum of Fibonacci numbers."""
+    partial_fib_sum = 0
 
-    current = 0
-    next = 1
+    previous = 0
+    current = 1
 
-    for i in range(to + 1):
-        if i >= from_:
-            sum += current
+    for i in range(n + 1):
+        if i >= m:
+            partial_fib_sum += previous
 
-        current, next = next, current + next
+        previous, current = current, previous + current
 
-    return sum % 10
+    return partial_fib_sum % 10
 
 
 if __name__ == "__main__":
-    input = sys.stdin.read()
-    from_, to = map(int, input.split())
-    print(fibonacci_partial_sum_naive(from_, to))
+    user_input = sys.stdin.read()
+    from_index, to_index = map(int, user_input.split())
+    print(get_last_digit_of_partial_fibonacci_sum_naive(from_index, to_index))
