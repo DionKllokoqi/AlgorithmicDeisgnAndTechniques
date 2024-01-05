@@ -17,7 +17,18 @@ def get_change(m):
         int: The minimum number of coins needed to change the input value into
     """
 
-    return m
+    min_coins = 0
+
+    if m >= 10:
+        min_coins += m // 10
+        m %= 10
+    if m >= 5:
+        min_coins += m // 5
+        m %= 5
+    if m >= 1:
+        min_coins += m
+
+    return min_coins
 
 
 if __name__ == "__main__":
