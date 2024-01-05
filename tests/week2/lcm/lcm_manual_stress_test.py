@@ -1,6 +1,6 @@
 import sys
-from lcm_naive import lcm_naive
-from lcm_improved import lcm_improved
+from src.week2.lcm.lcm_naive import lcm_naive
+from src.week2.lcm.lcm_improved import lcm_improved
 
 if __name__ == "__main__":
     input = sys.stdin.read()
