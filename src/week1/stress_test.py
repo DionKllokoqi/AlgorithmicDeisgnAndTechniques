@@ -1,9 +1,19 @@
-from random import *
-from naive_pairwise_product import get_maximum_pairwise_product_naive
-from pairwise_product import get_maximum_pairwise_product
+"""Stress test for maximum pairwise product problem.
+"""
+
+from random import randint
+
+from src.week1.naive_pairwise_product import get_maximum_pairwise_product_naive
+from src.week1.pairwise_product import get_maximum_pairwise_product
 
 
-def StressTest(N, M):
+def max_pairwise_stress_test(N, M):
+    """Stress test for maximum pairwise product problem.
+
+    Args:
+        N (int): The maximum number of elements in the array.
+        M (int): The maximum value of an element in the array.
+    """
     while True:
         n = randint(2, N)
         a = [None] * n
@@ -24,6 +34,6 @@ def StressTest(N, M):
 
 
 if __name__ == "__main__":
-    n = int(input())
-    m = int(input())
-    StressTest(n, m)
+    elements = int(input())
+    max_value = int(input())
+    max_pairwise_stress_test(elements, max_value)
